@@ -2,21 +2,22 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import GoogleIcon from '../../assets/icons8-google.svg';
-
+import {useDispatch} from 'react-redux'
+import { loginSuccess } from '../../redux/authReduccer';
 
 const Login = () => {
     const initialValues = {
         email: '',
         password: '',
     };
-
+    const dispatch = useDispatch();
     const validationSchema = Yup.object({
         email: Yup.string().email('Email inválido').required('Campo obrigatório'),
         password: Yup.string().required('Campo obrigatório'),
     });
 
     const handleLogin = (values: any) => {
-        console.log(values)
+        dispatch(loginSuccess(values))
     };
 
     const handleGoogleLogin = () => {
