@@ -1,7 +1,7 @@
 import './App.css'
 
 import Router from "./Router/routes"
-import store from './redux/store'
+import {store} from './redux/auth/storeAuth'
 import { Provider } from 'react-redux'
 function App() {
   return (
@@ -13,4 +13,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
